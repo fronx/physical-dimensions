@@ -1,4 +1,4 @@
-{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FlexibleInstances #-} -- for Show instances
 
 module OneDim where
 
@@ -20,11 +20,6 @@ type Volume = T3
                 Unit len a ->
                 Unit len a
 (Unit x) + (Unit y) = Unit (x P.+ y)
-
-(*) :: Num a => Unit l1 a ->
-                Unit l2 a ->
-                Unit (Add l1 l2) a
-(Unit x) * (Unit y) = Unit (x P.* y)
 
 -- construct a quantity from a number and a unit
 (*~) :: Num a => a ->
@@ -51,5 +46,4 @@ main = do
   print x
   print y
   print (x + x)
-  print (x * y)
   -- print (x + y) -- doesn't work!
